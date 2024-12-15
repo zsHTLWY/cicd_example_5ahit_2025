@@ -2,7 +2,7 @@ name: Validation of Console App
 on: [push]
 jobs:
   run-selected-unittests:
-    runs-on: windows-latest
+    runs-on: self-hosted
     name: Run MSBuild and VSTest
     
     steps:
