@@ -6,22 +6,15 @@ jobs:
     runs-on: windows-latest
     name: Run MSBuild
     
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4.2.2
-        id: checkout_code
-            
-      - name: Setup MSBuild and add to PATH
-        uses: microsoft/setup-msbuild@v2
-        id: setup_msbuild
-              
-      - name: Run MSBuild
-        id: run_msbuild
-        run: msbuild .\cicd_example.sln /p:Configuration=Debug
-
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: cicd_example_binary  # Artifact name
-          path: ./cicd_example/bin/Debug/cicd_example.exe   # Files or folder to upload
+    steps: 
+      - uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with: dotnet-version: '6.0.x'
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build
+      - name: Test with the dotnet CLI
+        run: dotnet test
           
