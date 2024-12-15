@@ -34,4 +34,4 @@ jobs:
           path: ./cicd_example_5ahit_2025/bin/Debug/cicd_example.exe        # Files or folder to upload
           
       - name: Show Directory
-        run: ls -la
+        run: dir
