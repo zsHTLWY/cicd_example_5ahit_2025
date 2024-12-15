@@ -18,4 +18,9 @@ jobs:
         run: dotnet build
       - name: Test with the dotnet CLI
         run: dotnet test
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cicd_example_binary  # Artifact name
+          path: ./cicd_example/bin/Debug/cicd_example.exe   # Files or folder to upload
           
