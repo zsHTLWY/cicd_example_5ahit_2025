@@ -13,7 +13,7 @@ jobs:
         with:
           dotnet-version: '6.0.x'
       - name: Install dependencies
-        run: dotnet restore
+        run: nuget restore cicd_example.sln
       - name: Build
         run: dotnet build
       - name: Test with the dotnet CLI
