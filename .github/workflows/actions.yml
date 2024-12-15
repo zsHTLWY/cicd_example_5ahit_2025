@@ -26,11 +26,12 @@ jobs:
 #        working-directory: UnitTests\bin\Debug
 #        run: vstest.console.exe .\UnitTests.dll /Tests:TestCaseWorkerIds,TestCaseWorkersCount
 
-      - name: Show Directory
-        run: ls -la
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3
         with:
           name: build-output  # Artifact name
           path: ./cicd_example_5ahit_2025/bin/Debug/cicd_example.exe        # Files or folder to upload
+          
+      - name: Show Directory
+        run: ls -la
