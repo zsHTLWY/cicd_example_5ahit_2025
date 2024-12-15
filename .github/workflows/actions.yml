@@ -16,7 +16,7 @@ jobs:
               
       - name: Run MSBuild
         id: run_msbuild
-        run: msbuild .\cicd_example.sln  /t:clean /p:Configuration=Debug
+        run: msbuild .\cicd_example.sln /p:Configuration=Debug
 #          nuget restore .\cicd_example.sln
 #          msbuild .\cicd_example.sln  /t:build /p:Configuration=Debug- name: Setup VSTest and add 
 #                   to PATH
