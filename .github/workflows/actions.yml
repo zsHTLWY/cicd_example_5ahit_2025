@@ -1,11 +1,10 @@
 name: Validation of Console App
 on:
-  pull_request:
+  push:
     branches: [ master, develop, release/*, hotfix/* ]
   jobs:
     run-selected-unittests:
       runs-on: windows-latest
-      env: ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       name: Run MSBuild and VSTest
     
     steps:
