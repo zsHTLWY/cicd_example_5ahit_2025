@@ -25,3 +25,9 @@ jobs:
 #        id: run_vstest
 #        working-directory: UnitTests\bin\Debug
 #        run: vstest.console.exe .\UnitTests.dll /Tests:TestCaseWorkerIds,TestCaseWorkersCount
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output  # Artifact name
+          path: ./cicd_example/bin/Debug/cicd_example.exe        # Files or folder to upload
