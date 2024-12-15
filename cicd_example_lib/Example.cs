@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cicd_example
+namespace cicd_example_lib
 {
-    internal class Program
+    public class Example
     {
-        static void Main(string[] args)
+        public string getInfo()
         {
-            
+            return("Hello CI/CD!");
         }
     }
 }

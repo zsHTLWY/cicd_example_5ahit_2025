@@ -1,9 +1,10 @@
-name: Validation of Console App
+name: Validation of cicd_example
 on: [push]
+
 jobs:
-  run-selected-unittests:
+  run-all:
     runs-on: windows-latest
-    name: Run MSBuild and VSTest
+    name: Run MSBuild
     
     steps:
       - name: Checkout code
@@ -17,21 +18,10 @@ jobs:
       - name: Run MSBuild
         id: run_msbuild
         run: msbuild .\cicd_example.sln /p:Configuration=Debug
-#          nuget restore .\cicd_example.sln
-#          msbuild .\cicd_example.sln  /t:build /p:Configuration=Debug- name: Setup VSTest and add 
-#                   to PATH
-#        uses: darenm/Setup-VSTest@v1
-#        id: setup_vstest- name: Test Case Workers
-#        id: run_vstest
-#        working-directory: UnitTests\bin\Debug
-#        run: vstest.console.exe .\UnitTests.dll /Tests:TestCaseWorkerIds,TestCaseWorkersCount
-
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build-output  # Artifact name
-          path: ./cicd_example/bin/Debug/cicd_example.exe        # Files or folder to upload
+          name: cicd_example_binary  # Artifact name
+          path: ./cicd_example/bin/Debug/cicd_example.exe   # Files or folder to upload
           
-      - name: Show Directory
-        run: dir
