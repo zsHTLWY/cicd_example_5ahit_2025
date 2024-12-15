@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cicd_example_lib\cicd_example_lib.csproj">
+      <Project>{06a52612-1bd8-43ea-8524-2fa98955e0e9}</Project>
+      <Name>cicd_example_lib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
