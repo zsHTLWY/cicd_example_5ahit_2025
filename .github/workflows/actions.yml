@@ -22,8 +22,8 @@ on:
           msbuild .\cicd_example.sln  /t:clean /p:Configuration=Debug
           nuget restore .\cicd_example.sln
           msbuild .\cicd_example.sln  /t:build /p:Configuration=Debug- name: Setup VSTest and add to PATH
-        uses: darenm/Setup-VSTest@v1
-        id: setup_vstest- name: Test Case Workers
-        id: run_vstest
+#        uses: darenm/Setup-VSTest@v1
+#        id: setup_vstest- name: Test Case Workers
+#        id: run_vstest
 #        working-directory: UnitTests\bin\Debug
 #        run: vstest.console.exe .\UnitTests.dll /Tests:TestCaseWorkerIds,TestCaseWorkersCount
