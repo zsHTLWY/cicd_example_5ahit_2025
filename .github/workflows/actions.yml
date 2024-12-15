@@ -1,27 +1,25 @@
 name: Validation of Console App
-on:
-  push:
-    branches: [ master, develop, release/*, hotfix/* ]
-  jobs:
-    run-selected-unittests:
-      runs-on: windows-latest
-      name: Run MSBuild and VSTest
+on: [push]
+jobs:
+  run-selected-unittests:
+    runs-on: windows-latest
+    name: Run MSBuild and VSTest
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.1.0
+        uses: actions/checkout@v4.2.2
         id: checkout_code
             
       - name: Setup MSBuild and add to PATH
-        uses: microsoft/setup-msbuild@v1.0.0
+        uses: microsoft/setup-msbuild@v2
         id: setup_msbuild
               
       - name: Run MSBuild
         id: run_msbuild
-        run: |
-          msbuild .\cicd_example.sln  /t:clean /p:Configuration=Debug
-          nuget restore .\cicd_example.sln
-          msbuild .\cicd_example.sln  /t:build /p:Configuration=Debug- name: Setup VSTest and add to PATH
+        run: msbuild .\cicd_example.sln  /t:clean /p:Configuration=Debug
+#          nuget restore .\cicd_example.sln
+#          msbuild .\cicd_example.sln  /t:build /p:Configuration=Debug- name: Setup VSTest and add 
+#                   to PATH
 #        uses: darenm/Setup-VSTest@v1
 #        id: setup_vstest- name: Test Case Workers
 #        id: run_vstest
