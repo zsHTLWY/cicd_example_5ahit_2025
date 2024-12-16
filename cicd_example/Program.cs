@@ -13,6 +13,7 @@ namespace cicd_example
         {
             Example e = new Example();
             Console.WriteLine(e.getInfo());
+			Console.WriteLine("---");
             Console.ReadKey();
         }
     }
